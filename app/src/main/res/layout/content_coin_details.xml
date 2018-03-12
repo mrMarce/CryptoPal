@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.financialplugins.cryptocurrencynavigator.activities.CoinDetailsActivity"
+    tools:showIn="@layout/activity_coin_details">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView">
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/chart_graph_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tableRow2">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <com.wang.avi.AVLoadingIndicatorView
+                            android:id="@+id/avi"
+                            style="@style/AVLoadingIndicatorView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="invisible"
+                            app:indicatorColor="@color/primaryColor"
+                            app:indicatorName="BallClipRotateIndicator" />
+
+                    </FrameLayout>
+
+                    <TableRow
+                        android:id="@+id/tableRow3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chart_graph_layout">
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkedButton="@+id/r_1d"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/r_1d"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/oneday"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor"
+                                android:textStyle="bold" />
+
+                            <RadioButton
+                                android:id="@+id/r_1w"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/one_week"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor" />
+
+                            <RadioButton
+                                android:id="@+id/r_1m"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/one_month"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor" />
+
+                            <RadioButton
+                                android:id="@+id/r_3m"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/three_month"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor" />
+
+                            <RadioButton
+                                android:id="@+id/r_6M"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/six_month"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor" />
+
+                            <RadioButton
+                                android:id="@+id/r_1y"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/one_year"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor" />
+
+                            <RadioButton
+                                android:id="@+id/r_all"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/radio_bg"
+                                android:button="@android:color/transparent"
+                                android:paddingBottom="4dp"
+                                android:text="@string/all"
+                                android:textAlignment="center"
+                                android:textColor="@drawable/radiobutton_textcolor" />
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/coinlogo">
+
+                        <TextView
+                            android:id="@+id/coin_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="24sp"
+                            tools:layout_editor_absoluteX="84dp"
+                            tools:layout_editor_absoluteY="136dp"
+                            tools:text="$" />
+
+                        <TextView
+                            android:id="@+id/coin_price_int"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="38sp"
+                            tools:layout_editor_absoluteX="163dp"
+                            tools:layout_editor_absoluteY="136dp"
+                            tools:text="4,157" />
+
+                        <TextView
+                            android:id="@+id/coin_price_double"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="24sp"
+                            tools:layout_editor_absoluteX="242dp"
+                            tools:layout_editor_absoluteY="136dp"
+                            tools:text=".59" />
+                    </TableRow>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tableRow3">
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/open_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="4,052.57" />
+
+                            <TextView
+                                android:id="@+id/OPEN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/open"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/HIGH_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="4,052.57" />
+
+                            <TextView
+                                android:id="@+id/HIGH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/high"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/low_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="44444" />
+
+                            <TextView
+                                android:id="@+id/LOW"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/low"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/volume24hours_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="44444" />
+
+                            <TextView
+                                android:id="@+id/volume24hours"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/volume_24h_coin"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/volume24hours_ccy_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="222222" />
+
+                            <TextView
+                                android:id="@+id/volume24hours_ccy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/volume_24h_ccy"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/supply_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="2222" />
+
+                            <TextView
+                                android:id="@+id/supply"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/supply"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/marketcup_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="2222" />
+
+                            <TextView
+                                android:id="@+id/marketcup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/market_cap"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/lastupdate_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="21345" />
+
+                            <TextView
+                                android:id="@+id/lastupdate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/last_update"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp">
+
+                            <TextView
+                                android:id="@+id/lastmarket_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                tools:text="531351" />
+
+                            <TextView
+                                android:id="@+id/lastmarket"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="@string/last_market"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/separatorColor" />
+
+
+                    </LinearLayout>
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5"
+                        tools:layout_editor_absoluteX="192dp"
+                        tools:layout_editor_absoluteY="0dp" />
+
+                    <TableRow
+                        android:id="@+id/tableRow2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tableRow">
+
+                        <TextView
+                            android:id="@+id/coin_change24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="20sp"
+                            tools:text="525.37" />
+
+                        <TextView
+                            android:id="@+id/coin_percents"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="20sp"
+                            tools:text="(5.73%)" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/coinlogo"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/cur_btc" />
+                </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        android:layout_height=".00001px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="SMART_BANNER"
+        app:adUnitId="@string/admob_banner_id"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"></com.google.android.gms.ads.AdView>
+
+</android.support.constraint.ConstraintLayout>

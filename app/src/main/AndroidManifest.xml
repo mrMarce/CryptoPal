@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.financialplugins.cryptocurrencynavigator"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.financialplugins.cryptocurrencynavigator.CryptocurrencyNavigator"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.financialplugins.cryptocurrencynavigator.activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.financialplugins.cryptocurrencynavigator.activities.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:parentActivityName="com.financialplugins.cryptocurrencynavigator.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.financialplugins.cryptocurrencynavigator.activities.MainActivity" />
+            <meta-data
+                android:name="android.com.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.financialplugins.cryptocurrencynavigator.activities.SplashScreenActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.financialplugins.cryptocurrencynavigator.activities.NavActivity"
+            android:label="@string/title_activity_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.financialplugins.cryptocurrencynavigator.activities.CoinDetailsActivity"
+            android:label="@string/title_activity_coin_details"
+            android:parentActivityName="com.financialplugins.cryptocurrencynavigator.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.financialplugins.cryptocurrencynavigator.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.financialplugins.cryptocurrencynavigator.activities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.financialplugins.cryptocurrencynavigator.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.financialplugins.cryptocurrencynavigator.activities.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
